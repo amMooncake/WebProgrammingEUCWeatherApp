@@ -1,27 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/style.css" />
     <title>My Project</title>
-  </head>
-  <body> 
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="input">
+            <input class="inputCity" type="text">
+            <button class="btnAddCity">change city</button>
+        </div>
+
+        <div class="weatherCards">
+            <div class="card">
+                <h2 class="">Brussels</h2>
+                <h3>Cloudy<span>Wind 10km/h <span class="dot">•</span> Precip 0%</span></h3>
+
+                <div class="row">
+                    <div class="sky">
+                        <div class="sun"></div>
+                        <div class="cloud">
+                            <div class="circle-small"></div>
+                            <div class="circle-tall"></div>
+                            <div class="circle-medium"></div>
+                        </div>
+                    </div>
+
+                    <h1>23°</h1>
+
+                </div>
 
 
-    <div class="input"> 
-      <input class="inputCity" type="text">  
-      <button class="btnAddCity">add city</button>
-    </div> 
 
-    <div class="containerWeather">
-      <div class="weatherInfo"></div>
+                <table>
+                    <tr>
+                        <td>TUE</td>
+                        <td>WED</td>
+                        <td>THU</td>
+                        <td>FRI</td>
+                        <td>SAT</td>
+                    </tr>
+                    <tr>
+                        <td>30°</td>
+                        <td>34°</td>
+                        <td>36°</td>
+                        <td>34°</td>
+                        <td>37°</td>
+                    </tr>
+                    <tr>
+                        <td>17°</td>
+                        <td>22°</td>
+                        <td>19°</td>
+                        <td>23°</td>
+                        <td>19°</td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
     </div>
-      
-    </div>
-    
+
     <script src="../scripts/key.js"></script>
     <script src="../scripts/main.js"></script>
-    
-  </body>
+
+</body>
+
 </html>

@@ -7,7 +7,7 @@ const btnAddCity = document.querySelector('.btnAddCity');
 btnAddCity.addEventListener('click', addCity);
 
 
-console.log("API Key is: " + API_KEY);
+// console.log("API Key is: " + API_KEY);
 
 
 function geoCodeCity(cityName) {
