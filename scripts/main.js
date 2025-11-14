@@ -1,13 +1,15 @@
 let myCities = [];
 
-
 const inputCity = document.querySelector('.inputCity');
 const btnAddCity = document.querySelector('.btnAddCity');
 
 btnAddCity.addEventListener('click', addCity);
 
-
 // console.log("API Key is: " + API_KEY);
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+}
 
 
 function geoCodeCity(cityName) {
@@ -26,8 +28,26 @@ function geoCodeCity(cityName) {
 }
 
 
+function changeCity(cityName) {
+    const idx = myCities.findIndex(city => city.name === cityName);
+
+    document.querySelector('.name').textContent = myCities[idx].name;
+
+    document.querySelector('.description').innerHTML = `${capitalizeFirstLetter(myCities[idx].current.weather_description)} <span class="wind">Wind ${myCities[idx].current.wind_speed}km/h</span>`;
+
+    document.querySelector('.currentTemp').textContent = `${Math.round(myCities[idx].current.temp)}°`;
+
+    document.querySelector('.days').innerHTML = myCities[idx].nextDays.map(day => `<td>${day.name}</td>`).join('');
+
+    document.querySelector('.nextDaysMaxTemp').innerHTML = myCities[idx].nextDays.map(day => `<td>${day.max}°</td>`).join('');
+
+    document.querySelector('.nextDaysMinTemp').innerHTML = myCities[idx].nextDays.map(day => `<td>${day.min}°</td>`).join('');
+
+}
+
 function addCity() {
-    const cityName = inputCity.value.trim();
+    const cityName = inputCity.value.trim() || 'nicosia';
+
 
     geoCodeCity(cityName).then(cityData => {
         const lat = cityData[0].lat;
@@ -48,6 +68,7 @@ function addCity() {
             myCities.push({
                 name: name,
                 current: {
+                    weather_description: weatherData.current.weather[0].description,
                     wind_speed: weatherData.current.wind_speed,
                     temp: weatherData.current.temp,
                 },
@@ -61,9 +82,9 @@ function addCity() {
                     };
                 })
             });
-        console.log(myCities);
-        
-        changeCity();
+            console.log(myCities);
+
+            changeCity(name);
 
         });
     })
@@ -71,5 +92,15 @@ function addCity() {
 }
 
 
+if (inputCity) {
+    inputCity.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addCity();
+        }
+    });
+}
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    addCity();
+});
