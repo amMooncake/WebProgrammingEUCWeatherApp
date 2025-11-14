@@ -30,12 +30,42 @@ function addCity() {
     const cityName = inputCity.value.trim();
 
     geoCodeCity(cityName).then(cityData => {
-        console.log(cityData)
-        console.log(cityData[0])
-        console.log(cityData[0].country)
-        
-        
+        const lat = cityData[0].lat;
+        const lon = cityData[0].lon;
+        const name = cityData[0].name;
 
+        const exclude = 'minutely,hourly'
+
+        const weatherApiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&units=metric&appid=${API_KEY}`
+
+        return fetch(weatherApiUrl).then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        }).then(weatherData => {
+            console.log(`Weather data for ${name}:`, weatherData);
+            myCities.push({
+                name: name,
+                current: {
+                    wind_speed: weatherData.current.wind_speed,
+                    temp: weatherData.current.temp,
+                },
+                nextDays: (weatherData.daily || []).slice(1, 6).map(day => {
+                    const date = new Date(day.dt * 1000);
+                    const name = date.toLocaleDateString('en-US', { weekday: 'short' }); // e.g. "Tue"
+                    return {
+                        name,
+                        max: Math.round(day.temp.max),
+                        min: Math.round(day.temp.min)
+                    };
+                })
+            });
+        console.log(myCities);
+        
+        changeCity();
+
+        });
     })
 
 }
