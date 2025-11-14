@@ -43,6 +43,8 @@ function changeCity(cityName) {
 
     document.querySelector('.nextDaysMinTemp').innerHTML = myCities[idx].nextDays.map(day => `<td>${day.min}°</td>`).join('');
 
+
+    document.querySelector('#wicon').src = `https://openweathermap.org/img/wn/${myCities[idx].current.icon}@4x.png`
 }
 
 function addCity() {
@@ -71,6 +73,7 @@ function addCity() {
                     weather_description: weatherData.current.weather[0].description,
                     wind_speed: weatherData.current.wind_speed,
                     temp: weatherData.current.temp,
+                    icon: weatherData.current.weather[0].icon
                 },
                 nextDays: (weatherData.daily || []).slice(1, 6).map(day => {
                     const date = new Date(day.dt * 1000);

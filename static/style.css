@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+:root{
+    --primary-orange: #FF9800;
+    --primary-orange-dark: #FB8C00;
+}
+
 
 html,
 body {
@@ -33,7 +38,13 @@ body {
 .row{
     display: flex;
     flex-direction: row;
+    align-items: center;
 
+}
+
+img {
+    width: 150px;
+    height: 150px;
 }
 
 
@@ -72,58 +83,6 @@ span span {
     margin-left: 0;
 }
 
-.dot {
-    font-size: .9em;
-}
-
-.sky {
-    position: relative;
-    top: 25px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #03A9F4;
-}
-
-.sun {
-    position: relative;
-    top: -3px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background-color: #FFEB3B;
-}
-
-.cloud {
-    position: absolute;
-    top: 60px;
-    left: 30px;
-}
-
-.cloud:before,
-.cloud:after {
-    position: absolute;
-    display: block;
-    content: "";
-}
-
-.cloud:before {
-    margin-left: -10px;
-    width: 51px;
-    height: 18px;
-    background: #fff;
-}
-
-.cloud:after {
-    position: absolute;
-    top: -10px;
-    left: -22px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 50px -6px 0 6px #fff, 25px -19px 0 10px #fff;
-}
 
 table {
     margin: 30px 0;
@@ -164,7 +123,7 @@ tr:nth-child(3) {
 
 .inputCity:focus {
     outline: none;
-    border-color: #03A9F4;
+    border-color: var(--primary-orange);;
 }
 
 .btnAddCity {
@@ -173,7 +132,7 @@ tr:nth-child(3) {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: #fff;
-    background-color: #03A9F4;
+    background-color: var(--primary-orange);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -184,7 +143,7 @@ tr:nth-child(3) {
 
 
 .btnAddCity:hover {
-    background-color: #0288D1;
+    background-color: var(--primary-orange-dark);
 }
 
 .btnAddCity:active {
