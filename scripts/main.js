@@ -1,9 +1,6 @@
 let myCities = [];
+let temperatureUnit = 'C';
 
-const inputCity = document.querySelector('.inputCity');
-const btnAddCity = document.querySelector('.btnAddCity');
-
-btnAddCity.addEventListener('click', addCity);
 
 // console.log("API Key is: " + API_KEY);
 
@@ -35,7 +32,7 @@ function changeCity(cityName) {
 
     document.querySelector('.description').innerHTML = `${capitalizeFirstLetter(myCities[idx].current.weather_description)} <span class="wind">Wind ${myCities[idx].current.wind_speed}km/h</span>`;
 
-    document.querySelector('.currentTemp').textContent = `${Math.round(myCities[idx].current.temp)}°`;
+    document.querySelector('.currentTemp').textContent = `${Math.round(myCities[idx].current.temp)}`;
 
     document.querySelector('.days').innerHTML = myCities[idx].nextDays.map(day => `<td>${day.name}</td>`).join('');
 
@@ -47,9 +44,11 @@ function changeCity(cityName) {
     document.querySelector('#wicon').src = `https://openweathermap.org/img/wn/${myCities[idx].current.icon}@4x.png`
 }
 
-function addCity() {
-    const cityName = inputCity.value.trim() || 'nicosia';
+function addCity(city) {
 
+    cityName = city || 'nicosia';
+
+    console.log(`Adding city: ${cityName}`);
 
     geoCodeCity(cityName).then(cityData => {
         const lat = cityData[0].lat;
@@ -66,7 +65,7 @@ function addCity() {
             }
             return response.json();
         }).then(weatherData => {
-            console.log(`Weather data for ${name}:`, weatherData);
+            // console.log(`Weather data for ${name}:`, weatherData);
             myCities.push({
                 name: name,
                 current: {
@@ -85,7 +84,7 @@ function addCity() {
                     };
                 })
             });
-            console.log(myCities);
+            // console.log(myCities);
 
             changeCity(name);
 
@@ -93,17 +92,3 @@ function addCity() {
     })
 
 }
-
-
-if (inputCity) {
-    inputCity.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            addCity();
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    addCity();
-});

@@ -10,23 +10,48 @@
 
 <body>
 
-    <div class="content">
-        <div class="input">
-            <input class="inputCity" type="text" value="Nicosia">
-            <button class="btnAddCity">change city</button>
-        </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">this</a></li>
+                <li><a href="#forecast">nav bar</a></li>
+                <li><a href="#about">doesn't</a></li>
+                <li><a href="#settings">work</a></li>
+            </ul>
+        </nav>
+        <h1>Weather Application</h1>
+    </header>
 
-        <div class="weatherCards">
-            <div class="card">
+    <div class="content">
+        <section class="input-section">
+            <fieldset>
+                <legend>Select Your City</legend>
+
+                <label for="cityDropdown">Choose a city:</label>
+                <select id="cityDropdown" class="cityDropdown">
+                    <option value="Nicosia">Nicosia</option>
+                    <option value="London">London</option>
+                    <option value="Warsaw">Warsaw</option>
+                    <option value="New York">New York</option>
+                    <option value="Tokyo">Tokyo</option>
+                </select>
+
+                <label for="customCity">Or enter custom city:</label>
+                <input id="customCity" class="inputCity" type="text" value="Nicosia">
+                <button class="btnAddCity">Change City</button>
+            </fieldset>
+        </section>
+
+        <section class="weatherCards">
+            <article class="card">
                 <h2 class="name">Nicosia</h2>
-                <h3 class="description">Cloudy<span>Wind 10km/h </span> </h3>
+                <h3 class="description"> <em> Cloudy </em> <strong>Wind 10km/h </strong> </h3>
 
                 <div class="row">
-
-                    <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-
-                    <h1 class="currentTemp">0°</h1>
-
+                    <div id="icon">
+                        <img id="wicon" src="" alt="Weather icon">
+                    </div>
+                    <h1 class="currentTemp">0</h1><h1>°C</h1>
                 </div>
 
                 <table>
@@ -52,14 +77,37 @@
                         <td>19°</td>
                     </tr>
                 </table>
+            </article>
+        </section>
 
+        <section class="info-section">
+            <article class="features">
+                <h2>Features</h2>
+                <ul>
+                    <li>Real-time weather data</li>
+                    <li>5-day forecast</li>
+                    <li>Multiple city support</li>
+                    <li>Custom city search</li>
+                </ul>
+            </article>
+        </section>
 
-            </div>
-        </div>
+        <section id="register">
+            <article class="card">
+                
+
+            </article>
+        </section>
     </div>
+
+    <footer>
+        <small>&copy; Aleksy Malawski 2025EUC2756 weather app. All rights reserved. Data provided by OpenWeather
+            API.</small>
+    </footer>
 
     <script src="../scripts/key.js"></script>
     <script src="../scripts/main.js"></script>
+    <script src="../scripts/inputLiseners.js"></script>
 
 </body>
 
