@@ -241,12 +241,6 @@ tr:nth-child(3) {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
 }
 
-.info-section {
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    justify-content: center;
-}
 
 .features {
     background-color: white;
