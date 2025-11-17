@@ -43,6 +43,33 @@
         </section>
     </div>
 
+    <footer>
+        <p class="slide">This is a footer.</p>
+
+        <button class="btn1">Toggle Slide</button>
+        <button class="btn2">Toggle Fade</button>
+        <button class="btn3">Animate</button>
+    </footer>
+
+
+    <script>
+        $('.btn1').click(function () {
+            $('.slide').slideToggle();
+        });
+
+        $('.btn2').click(function () {
+            $('.slide').fadeToggle();
+        });
+
+        $('.btn3').click(function () {
+            $('.slide').animate({
+                fontSize: '30px',
+                marginLeft: '100px',
+                opacity: 0.5
+            }, 1000);
+        });
+    </script>
+
 </body>
 
 </html>

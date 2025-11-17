@@ -26,5 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     addCity();
 });
 
-
-
+// hide footer
+const hideBtn = document.getElementById('hideFooterBtn');
+hideBtn.addEventListener('click', function () {
+    var footer = document.querySelector('footer');
+    if (footer) footer.style.display = 'none';
+});

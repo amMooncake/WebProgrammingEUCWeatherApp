@@ -85,10 +85,61 @@
 
             </article>
         </section>
-        <section class="card" style="height: 300px; width: 300px; align-items: center; justify-content: center;">
-            <h4>This form doesn't work, don't worry</h4>
+        <section class="card" style="gap: 20px;">
+            <button id="dblBtn" type="button" title="Double-click me">Double-click me</button>
+            <div id="box"
+                style="width:120px;height:50px;border:1px solid #666;display:flex;align-items:center;justify-content:center;">
+                Hover / Enter
+            </div>
+            <div id="mouseupArea"
+                style="width:140px;height:50px;border:1px dashed #999;display:flex;align-items:center;justify-content:center;cursor:crosshair;">
+                Click and release here
+            </div>
+            <div id="status" aria-live="polite" style="margin-left:8px;font-size:0.9rem;color:#333">Status: idle
+            </div>
         </section>
     </div>
+
+    <footer>
+
+        <script>
+            (function () {
+                var dblBtn = document.getElementById('dblBtn');
+                var box = document.getElementById('box');
+                var mouseupArea = document.getElementById('mouseupArea');
+                var status = document.getElementById('status');
+
+                dblBtn.addEventListener('dblclick', function () {
+                    alert('You double-clicked the button!');
+                    status.textContent = 'Status: button double-clicked';
+                });
+
+                box.addEventListener('mouseenter', function () {
+                    box.style.background = '#eef';
+                    status.textContent = 'Status: mouse entered box';
+                });
+
+                box.addEventListener('mouseover', function () {
+                    status.textContent = 'Status: mouse over box';
+                });
+
+                box.addEventListener('mouseleave', function () {
+                    box.style.background = '';
+                    status.textContent = 'Status: idle';
+                });
+
+                mouseupArea.addEventListener('mouseup', function (e) {
+                    alert('Mouse released at coordinates: ' + e.clientX + ', ' + e.clientY);
+                    status.textContent = 'Status: mouseup at (' + e.clientX + ',' + e.clientY + ')';
+                });
+
+                // make the box focusable so keyboard users get a similar visual
+                box.tabIndex = 0;
+                box.addEventListener('focus', function () { box.style.outline = '2px solid #88f'; });
+                box.addEventListener('blur', function () { box.style.outline = ''; });
+            })();
+        </script>
+    </footer>
 
 </body>
 
