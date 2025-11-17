@@ -5,6 +5,8 @@
 }
 
 
+
+
 html,
 body {
     background-color: #F3F3F3;
@@ -14,6 +16,13 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
 
 header {
     background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-dark) 100%);

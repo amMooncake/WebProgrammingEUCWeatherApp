@@ -1,0 +1,64 @@
+
+.animation-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.animation-card {
+    height: 300px;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.animation-box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-orange);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.move-horizontal {
+    animation: moveHorizontal 2s ease-in-out infinite;
+}
+
+@keyframes moveHorizontal {
+    0%, 100% {
+        transform: translateX(-50px);
+    }
+    50% {
+        transform: translateX(50px);
+    }
+}
+
+/* Move Vertical Animation */
+.move-vertical {
+    animation: moveVertical 2s ease-in-out infinite;
+}
+
+@keyframes moveVertical {
+    0%, 100% {
+        transform: translateY(-50px);
+    }
+    50% {
+        transform: translateY(50px);
+    }
+}
+
+.rotation {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -6,20 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/style.css" />
     <title>My Project</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+        });
+    </script>
 </head>
 
 <body>
-
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">this</a></li>
-                <li><a href="navBar.html">nav bar</a></li>
-                <li><a href="doesnt.html">doesn't work</a></li>
-            </ul>
-        </nav>
-        <h1>Weather Application</h1>
-    </header>
+    <div id="header"></div>
+    
 
     <div class="content">
         <section class="input-section">
@@ -79,69 +78,9 @@
                 </table>
             </article>
         </section>
-
-
-
-        <section id="register">
-            <article class="card">
-                <form id="registerForm" class="register-form" action="./register.html">
-                    <legend>Create an Account</legend>
-
-                    <label for="fullName">Full name</label>
-                    <input id="fullName" name="fullName" type="text" placeholder="Jane Doe" required
-                        autocomplete="name">
-
-                    <label for="email">Email address</label>
-                    <input id="email" name="email" type="email" placeholder="you@example.com" required
-                        autocomplete="email">
-
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Choose a password" required
-                        minlength="8" aria-describedby="pwdHelp" autocomplete="new-password" pattern="[A-Za-z]{3-28}">
-                    <small id="pwdHelp">Minimum 8 characters.</small>
-
-                    <label for="confirmPassword">Confirm password</label>
-                    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Repeat password"
-                        required minlength="8" autocomplete="new-password" pattern="[A-Za-z]{3-28}">
-
-                    <label for="age">Age</label>
-                    <input id="age" name="age" type="number" min="13" max="120" placeholder="18" required>
-
-                    <label>Gender</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="gender" value="female"> Female</label>
-                        <label><input type="radio" name="gender" value="male"> Male</label>
-                        <label><input type="radio" name="gender" value="other" disabled> Other</label>
-                        <label><input type="radio" name="gender" value="prefer_not"> Prefer not to say</label>
-                    </div>
-
-                    <label for="City">City</label>
-                    <select id="City" name="City" required>
-                        <option value="">Select City</option>
-                        <option value="Nicosia">Nicosia</option>
-                        <option value="London">London</option>
-                        <option value="Warsaw">Warsaw</option>
-                        <option value="New York">New York</option>
-                        <option value="Tokyo">Tokyo</option>
-                    </select>
-
-                    <label class="terms">
-                        <input id="terms" name="terms" type="checkbox" required>
-                        I agree to the terms and privacy policy
-                    </label>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btnPrimary">Register</button>
-                        <button type="reset" class="btnSecondary">Reset</button>
-                    </div>
-                    </fieldset>
-                </form>
-
-            </article>
-        </section>
     </div>
 
-    
+
     <footer>
         <small>&copy; Aleksy Malawski 2025EUC2756 weather app. All rights reserved. Data provided by OpenWeather
             API.</small>
