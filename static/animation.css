@@ -36,7 +36,6 @@
     }
 }
 
-/* Move Vertical Animation */
 .move-vertical {
     animation: moveVertical 2s ease-in-out infinite;
 }
